@@ -5,11 +5,13 @@ on:
     branches:
     - main
     paths:
+    - .github/workflows/2022.yaml
     - 2022/**/*
   push:
     branches:
     - main
     paths:
+    - .github/workflows/2022.yaml
     - 2022/**/*
 
 jobs:
@@ -33,8 +35,8 @@ jobs:
         bundler-cache: false
         ruby-version: 3.0
     - name: Day 01
-      run: diff <(ruby day01.rb) <(echo "69289 205615")
+      run: diff <(ruby day01.rb) <(echo "69289\n205615")
     - name: Day 02
-      run: diff <(go run day02.go) <(echo "12740 11980")
+      run: diff <(go run day02.go) <(echo "12740\n11980")
     - name: Day 03
-      run: diff <(ruby day03.rb) <(echo "7597 2607")
+      run: diff <(ruby day03.rb) <(echo "7597\n2607")
