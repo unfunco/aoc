@@ -63,7 +63,7 @@ File.read("day03_input.txt").split($/).map do |line|
   item = c1.split("") & c2.split("")
   sum += CHARS.find_index(item[0]) + 1
 end
-puts "Part 1: %d" % sum
+puts "%d" % sum
 
 # As you finish identifying the misplaced items, the Elves come to you with
 # another issue.
@@ -113,4 +113,4 @@ File.read("day03_input.txt").split($/).each_slice(3) do |g|
   item = g[0].split("") & g[1].split("") & g[2].split("")
   sum += CHARS.find_index(item[0]) + 1
 end
-puts "Part 2: %d" % sum
+puts "%d" % sum

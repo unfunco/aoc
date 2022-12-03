@@ -14,6 +14,10 @@ on:
 
 jobs:
   test:
+    defaults:
+      run:
+        shell: bash
+        working-directory: 2022
     name: Test
     runs-on: ubuntu-latest
     steps:
@@ -40,4 +44,3 @@ jobs:
       run: |
         output=$(ruby day03.rb)
         diff <(echo $output) <(echo "7597\n2607")
-    working-directory: 2022
