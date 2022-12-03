@@ -12,20 +12,16 @@ git clone git@github.com:unfunco/aoc.git
 cd aoc/2022
 ```
 
-## Day 01
+## Executing the solutions
 
 ```bash
 ruby day01.rb
 ```
 
-```ruby
-File.read("day01_input.txt").split(/\n{2}/).map { |elf|
-  elf.split($/).map(&:to_i).sum
-}.max
+```bash
+go run day02.go
 ```
 
-```ruby
-File.read("day01_input.txt").split(/\n{2}/).map { |elf|
-  elf.split($/).map(&:to_i).sum
-}.max(3).sum
+```bash
+ruby day03.rb
 ```
