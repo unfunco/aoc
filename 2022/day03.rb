@@ -119,7 +119,7 @@ puts "%d" % sum
 
 sum = 0
 File.read("day03_input.txt").split($/).each_slice(3) do |g|
-  item = g[0].split("") & g[1].split("") & g[2].split("")
+  item = g.map { |e| e.split("") }.reduce(&:&)
   sum += PRIORITIES.find_item(item)
 end
 puts "%d" % sum
