@@ -70,7 +70,7 @@ end
 # single-characters within an array of strings.
 class Array
   def chars_intersection
-    self.map { |e| e.split(//) }.reduce(&:&)
+    map { |e| e.split(//) }.reduce(&:&)
   end
 end
 
