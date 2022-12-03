@@ -55,13 +55,22 @@
 # Find the item type that appears in both compartments of each rucksack.
 # What is the sum of the priorities of those item types?
 
-CHARS = [*'a'..'z', *'A'..'Z']
+# This creates an array of characters from a-z then from A-Z,
+# The array is zero-indexed from 0 through 51.
+PRIORITIES = [*'a'..'z', *'A'..'Z']
+
+# Since our PRIORITIES array is zero-indexed but the problem states that the
+# first character has a value of 1, we add a method to the PRIORITIES instance
+# to return the correct priority based on the location of the item in the array.
+PRIORITIES.define_singleton_method(:find_item) do |item|
+  find_index(item[0]) + 1
+end
 
 sum = 0
 File.read("day03_input.txt").split($/).map do |line|
   c1, c2 = line.chars.each_slice(line.length / 2).map(&:join)
   item = c1.split("") & c2.split("")
-  sum += CHARS.find_index(item[0]) + 1
+  sum += PRIORITIES.find_item(item)
 end
 puts "%d" % sum
 
@@ -111,6 +120,6 @@ puts "%d" % sum
 sum = 0
 File.read("day03_input.txt").split($/).each_slice(3) do |g|
   item = g[0].split("") & g[1].split("") & g[2].split("")
-  sum += CHARS.find_index(item[0]) + 1
+  sum += PRIORITIES.find_item(item)
 end
 puts "%d" % sum
