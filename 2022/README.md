@@ -7,6 +7,11 @@ Additionally, the crux of each part of the solution is provided, along with some
 commentary describing the solution and how it was reached. Code blocks assume
 the present working directory to be the same as this README.
 
+```bash
+git clone git@github.com:unfunco/aoc.git
+cd aoc/2022
+```
+
 ## Day 01
 
 ```bash

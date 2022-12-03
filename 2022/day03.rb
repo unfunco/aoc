@@ -55,13 +55,13 @@
 # Find the item type that appears in both compartments of each rucksack.
 # What is the sum of the priorities of those item types?
 
-chars = ('a'..'z').to_a + ('A'..'Z').to_a
+CHARS = [*'a'..'z', *'A'..'Z']
 
 sum = 0
 File.read("day03_input.txt").split($/).map do |line|
   c1, c2 = line.chars.each_slice(line.length / 2).map(&:join)
   item = c1.split("") & c2.split("")
-  sum += chars.find_index(item[0]) + 1
+  sum += CHARS.find_index(item[0]) + 1
 end
 puts "Part 1: %d" % sum
 
@@ -111,6 +111,6 @@ puts "Part 1: %d" % sum
 sum = 0
 File.read("day03_input.txt").split($/).each_slice(3) do |g|
   item = g[0].split("") & g[1].split("") & g[2].split("")
-  sum += chars.find_index(item[0]) + 1
+  sum += CHARS.find_index(item[0]) + 1
 end
 puts "Part 2: %d" % sum
