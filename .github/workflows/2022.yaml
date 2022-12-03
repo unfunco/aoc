@@ -35,7 +35,7 @@ jobs:
     - name: Day 01
       run: |
         output=$(ruby day01.rb)
-        diff <(echo $output) <(echo "69289\n205615")
+        diff <(echo $output) <(echo "69289 205615")
     - name: Day 02
       run: |
         output=$(go run day02.go)
