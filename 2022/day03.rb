@@ -1,4 +1,4 @@
-# Day 3: Rucksack Reorganization
+# Day 03: Rucksack Reorganization
 #
 # One Elf has the important job of loading all of the rucksacks with supplies
 # for the jungle journey. Unfortunately, that Elf didn't quite follow the
