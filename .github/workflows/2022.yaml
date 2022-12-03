@@ -1,0 +1,43 @@
+name: 2022
+
+on:
+  pull_request:
+    branches:
+    - main
+    paths:
+    - 2022/**/*
+  push:
+    branches:
+    - main
+    paths:
+    - 2022/**/*
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: false
+        ruby-version: 3.0
+    - name: Day 01
+      run: |
+        output=$(ruby day01.rb)
+        diff <(echo $output) <(echo "69289\n205615")
+    - name: Day 02
+      run: |
+        output=$(go run day02.go)
+        diff <(echo $output) <(echo "12740\n11980")
+    - name: Day 03
+      run: |
+        output=$(ruby day03.rb)
+        diff <(echo $output) <(echo "7597\n2607")
+    working-directory: 2022
