@@ -66,29 +66,39 @@ class Range
   end
 end
 
-count = 0
+p1count, p2count = 0, 0
 File.read("day04_input.txt").split($/) do |line|
   pairs = line.split(",").map do |pair|
     r = pair.split("-").map(&:to_i)
     r[0]..r[1]
   end
 
-  r1 = pairs[0]
-  r2 = pairs[1]
+  r1, r2 = pairs
 
-# Part 1:
-#   if pairs[0].cover?(pairs[1]) || pairs[1].cover?(pairs[0])
-#     count += 1
-#     puts "Line: #{lines} Count: #{count} Pairs: #{pairs.inspect}"
-#   end
-
-  # Part 2:
-  if r1.overlaps?(r2)
-    count += 1
-    puts "Line: #{lines} Count: #{count} Pairs: #{pairs.inspect}"
+  if r1.cover?(r2) || r2.cover?(r1)
+    p1count += 1
   end
 
-  lines += 1
+  # It seems like there is still quite a bit of duplicate work planned.
+  # Instead, the Elves would like to know the number of pairs that overlap
+  # at all.
+  #
+  # In the above example, the first two pairs (2-4,6-8 and 2-3,4-5) don't
+  # overlap, while the remaining four pairs (5-7,7-9, 2-8,3-7, 6-6,4-6,
+  # and 2-6,4-8) do overlap:
+  #
+  # - 5-7,7-9 overlaps in a single section, 7.
+  # - 2-8,3-7 overlaps all of the sections 3 through 7.
+  # - 6-6,4-6 overlaps in a single section, 6.
+  # - 2-6,4-8 overlaps in sections 4, 5, and 6.
+  #
+  # So, in this example, the number of overlapping assignment pairs is 4.
+  #
+  # In how many assignment pairs do the ranges overlap?
+  if r1.overlaps?(r2)
+    p2count += 1
+  end
 end
 
-p count
+puts p1count
+puts p2count
