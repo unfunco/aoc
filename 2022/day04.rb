@@ -70,8 +70,7 @@ end
 part1, part2 = 0, 0
 File.read("day04_input.txt").split($/) do |line|
   ranges = line.split(",").map do |r|
-    range = r.split("-").map(&:to_i)
-    Range.new(*range)
+    Range.new(*r.split("-").map(&:to_i))
   end
 
   r1, r2 = ranges
