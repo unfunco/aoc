@@ -69,12 +69,12 @@ end
 
 part1, part2 = 0, 0
 File.read("day04_input.txt").split($/) do |line|
-  pairs = line.split(",").map do |pair|
-    r = pair.split("-").map(&:to_i)
-    Range.new(*r)
+  ranges = line.split(",").map do |r|
+    range = r.split("-").map(&:to_i)
+    Range.new(*range)
   end
 
-  r1, r2 = pairs
+  r1, r2 = ranges
 
   part1 += 1 if r1.cover?(r2) or r2.cover?(r1)
 
