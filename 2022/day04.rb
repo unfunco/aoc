@@ -71,7 +71,7 @@ part1, part2 = 0, 0
 File.read("day04_input.txt").split($/) do |line|
   pairs = line.split(",").map do |pair|
     r = pair.split("-").map(&:to_i)
-    r[0]..r[1]
+    Range.new(*r)
   end
 
   r1, r2 = pairs
