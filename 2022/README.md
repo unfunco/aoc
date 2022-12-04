@@ -25,3 +25,7 @@ go run day02.go
 ```bash
 ruby day03.rb
 ```
+
+```bash
+ruby day04.rb
+```
