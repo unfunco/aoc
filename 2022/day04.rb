@@ -67,15 +67,15 @@ class Range
   end
 end
 
-part1, part2 = 0, 0
-File.read("day04_input.txt").split($/) do |line|
+p1, p2 = 0, 0
+File.read("day04_input.txt").split $/ do |line|
   ranges = line.split(",").map do |r|
     Range.new(*r.split("-").map(&:to_i))
   end
 
   r1, r2 = ranges
 
-  part1 += 1 if r1.cover?(r2) or r2.cover?(r1)
+  p1 += 1 if r1.cover? r2 or r2.cover? r1
 
   # It seems like there is still quite a bit of duplicate work planned.
   # Instead, the Elves would like to know the number of pairs that overlap
@@ -93,8 +93,8 @@ File.read("day04_input.txt").split($/) do |line|
   # So, in this example, the number of overlapping assignment pairs is 4.
   #
   # In how many assignment pairs do the ranges overlap?
-  part2 += 1 if r1.overlaps?(r2)
+  p2 += 1 if r1.overlaps? r2
 end
 
-puts part1
-puts part2
+puts p1
+puts p2

@@ -62,7 +62,7 @@
 # Find the Elf carrying the most Calories. How many total Calories is that Elf
 # carrying?
 
-puts "%d" % File.read("day01_input.txt").split(/\n{2}/).map { |elf|
+puts File.read("day01_input.txt").split(/\n{2}/).map { |elf|
   elf.split($/).map(&:to_i).sum
 }.max
 
@@ -83,6 +83,6 @@ puts "%d" % File.read("day01_input.txt").split(/\n{2}/).map { |elf|
 # Find the top three Elves carrying the most Calories. How many Calories are
 # those Elves carrying in total?
 
-puts "%d" % File.read("day01_input.txt").split(/\n{2}/).map { |elf|
+puts File.read("day01_input.txt").split(/\n{2}/).map { |elf|
   elf.split($/).map(&:to_i).sum
 }.max(3).sum
