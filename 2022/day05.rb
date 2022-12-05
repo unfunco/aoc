@@ -77,7 +77,7 @@
 # After the rearrangement procedure completes, what crate ends up on top of
 # each stack?
 
-stacks = [
+stacks = [[],
   ["D", "M", "S", "Z", "R", "F", "W", "N"],
   ["W", "P", "Q", "G", "S"],
   ["W", "R", "V", "Q", "F", "N", "J", "C"],
@@ -92,15 +92,12 @@ stacks = [
 File.read("day05_input.txt").split(/\n{2}/)[1].split($/) do |instruction|
   move, from, to = instruction.scan(/\d+/).map(&:to_i)
   move.times do
-    crate = stacks[from-1].pop
-    stacks[to-1].push(crate)
+    crate = stacks[from].pop
+    stacks[to].push(crate)
   end
 end
 
-stacks.each do |stack|
-  print stack.last
-end
-puts
+puts stacks.each.collect(&:last).join
 
 # As you watch the crane operator expertly rearrange the crates, you notice the
 # process isn't following your prediction.
@@ -163,7 +160,7 @@ puts
 # After the rearrangement procedure completes, what crate ends up on top of
 # each stack?
 
-stacks = [
+stacks = [[],
   ["D", "M", "S", "Z", "R", "F", "W", "N"],
   ["W", "P", "Q", "G", "S"],
   ["W", "R", "V", "Q", "F", "N", "J", "C"],
@@ -177,11 +174,8 @@ stacks = [
 
 File.read("day05_input.txt").split(/\n{2}/)[1].split($/) do |instruction|
   move, from, to = instruction.scan(/\d+/).map(&:to_i)
-  crates = stacks[from-1].pop(move)
-  stacks[to-1] += crates
+  crates = stacks[from].pop(move)
+  stacks[to] += crates
 end
 
-stacks.each do |stack|
-  print stack.last
-end
-puts
+puts stacks.each.collect(&:last).join
