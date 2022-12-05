@@ -68,7 +68,7 @@ class Range
 end
 
 p1, p2 = 0, 0
-File.read("day04_input.txt").split $/ do |line|
+File.read("day04_input.txt").lines do |line|
   ranges = line.split(",").map do |r|
     Range.new(*r.split("-").map(&:to_i))
   end

@@ -89,7 +89,7 @@ stacks = [[],
   ["R", "M", "S", "G", "Z", "W", "V"],
 ]
 
-File.read("day05_input.txt").split(/\n{2}/)[1].split $/ do |instruction|
+File.read("day05_input.txt").split(/\n{2}/)[1].lines do |instruction|
   this_many, from, to = instruction.scan(/\d+/).map &:to_i
   this_many.times do
     crate = stacks[from].pop
@@ -172,7 +172,7 @@ stacks = [[],
   ["R", "M", "S", "G", "Z", "W", "V"],
 ]
 
-File.read("day05_input.txt").split(/\n{2}/)[1].split $/ do |instruction|
+File.read("day05_input.txt").split(/\n{2}/)[1].lines do |instruction|
   this_many, from, to = instruction.scan(/\d+/).map &:to_i
   crates = stacks[from].pop this_many
   stacks[to].push *crates

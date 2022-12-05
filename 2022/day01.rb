@@ -63,7 +63,7 @@
 # carrying?
 
 puts File.read("day01_input.txt").split(/\n{2}/).map { |elf|
-  elf.split($/).map(&:to_i).sum
+  elf.lines.map(&:to_i).sum
 }.max
 
 # By the time you calculate the answer to the Elves' question, they've
@@ -84,5 +84,5 @@ puts File.read("day01_input.txt").split(/\n{2}/).map { |elf|
 # those Elves carrying in total?
 
 puts File.read("day01_input.txt").split(/\n{2}/).map { |elf|
-  elf.split($/).map(&:to_i).sum
+  elf.lines.map(&:to_i).sum
 }.max(3).sum
