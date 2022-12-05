@@ -175,7 +175,7 @@ stacks = [[],
 File.read("day05_input.txt").split(/\n{2}/)[1].split($/) do |instruction|
   move, from, to = instruction.scan(/\d+/).map(&:to_i)
   crates = stacks[from].pop(move)
-  stacks[to] += crates
+  stacks[to].push(*crates)
 end
 
 puts stacks.each.collect(&:last).join
