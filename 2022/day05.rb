@@ -89,11 +89,11 @@ stacks = [[],
   ["R", "M", "S", "G", "Z", "W", "V"],
 ]
 
-File.read("day05_input.txt").split(/\n{2}/)[1].split($/) do |instruction|
-  move, from, to = instruction.scan(/\d+/).map(&:to_i)
-  move.times do
+File.read("day05_input.txt").split(/\n{2}/)[1].split $/ do |instruction|
+  this_many, from, to = instruction.scan(/\d+/).map &:to_i
+  this_many.times do
     crate = stacks[from].pop
-    stacks[to].push(crate)
+    stacks[to].push crate
   end
 end
 
@@ -172,10 +172,10 @@ stacks = [[],
   ["R", "M", "S", "G", "Z", "W", "V"],
 ]
 
-File.read("day05_input.txt").split(/\n{2}/)[1].split($/) do |instruction|
-  move, from, to = instruction.scan(/\d+/).map(&:to_i)
-  crates = stacks[from].pop(move)
-  stacks[to].push(*crates)
+File.read("day05_input.txt").split(/\n{2}/)[1].split $/ do |instruction|
+  this_many, from, to = instruction.scan(/\d+/).map &:to_i
+  crates = stacks[from].pop this_many
+  stacks[to].push *crates
 end
 
 puts stacks.each.collect(&:last).join
