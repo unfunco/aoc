@@ -62,7 +62,7 @@ PRIORITIES = [*'a'..'z', *'A'..'Z']
 # Since our PRIORITIES array is zero-indexed but the problem states that the
 # first character has a value of 1, we add a method to the PRIORITIES instance
 # to return the correct priority based on the location of the item in the array.
-PRIORITIES.define_singleton_method(:find_item) do |item|
+PRIORITIES.define_singleton_method(:find) do |item|
   find_index(item[0]) + 1
 end
 
@@ -70,7 +70,7 @@ end
 # single-characters within an array of strings.
 class Array
   def chars_intersection
-    map { |e| e.split(//) }.reduce(&:&)
+    map { |e| e.split(//) }.reduce &:&
   end
 end
 
@@ -78,17 +78,17 @@ end
 # n strings of an equal number of characters.
 class String
   def compartmentalize(n)
-    chars.each_slice(length / n).map(&:join)
+    chars.each_slice(length / n).map &:join
   end
 end
 
 sum = 0
 File.read("day03_input.txt").split($/).map do |r|
-  c1, c2 = r.compartmentalize(2)
+  c1, c2 = r.compartmentalize 2
   item = [c1, c2].chars_intersection
-  sum += PRIORITIES.find_item(item)
+  sum += PRIORITIES.find item
 end
-puts "%d" % sum
+puts sum
 
 # As you finish identifying the misplaced items, the Elves come to you with
 # another issue.
@@ -134,8 +134,8 @@ puts "%d" % sum
 # What is the sum of the priorities of those item types?
 
 sum = 0
-File.read("day03_input.txt").split($/).each_slice(3) do |g|
+File.read("day03_input.txt").split($/).each_slice 3 do |g|
   item = g.chars_intersection
-  sum += PRIORITIES.find_item(item)
+  sum += PRIORITIES.find item
 end
-puts "%d" % sum
+puts sum
