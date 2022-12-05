@@ -46,3 +46,6 @@ jobs:
     - name: Day 04
       run: diff <(ruby day04.rb) <(echo 595 ; echo 952)
       continue-on-error: true
+    - name: Day 05
+      run: diff <(ruby day04.rb) <(echo FWNSHLDNZ ; echo RNRGDNFQG)
+      continue-on-error: true
