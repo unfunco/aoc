@@ -33,7 +33,7 @@ jobs:
     - name: Day 01
       run: diff <(ruby day01.rb) <(echo 69289 ; echo 205615)
     - name: Day 02
-      run: diff <(ruby day02.go) <(echo 12740 ; echo 11980)
+      run: diff <(ruby day02.rb) <(echo 12740 ; echo 11980)
     - name: Day 03
       run: diff <(ruby day03.rb) <(echo 7597 ; echo 2607)
     - name: Day 04
