@@ -33,3 +33,7 @@ ruby day04.rb
 ```bash
 ruby day05.rb
 ```
+
+```bash
+ruby day06.rb
+```
