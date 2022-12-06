@@ -82,7 +82,7 @@ end
 # marker is detected?
 
 marker = 14
-File.read("day06_input.txt").chars.each_cons(marker) do |window|
+File.read("day06_input.txt").chars.each_cons marker do |window|
   if window == window.uniq
     puts marker
     break
