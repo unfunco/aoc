@@ -54,13 +54,13 @@
 # How many characters need to be processed before the first start-of-packet
 # marker is detected?
 
-index = 4
-File.read("day06_input.txt").chars.each_cons(index) do |chars|
-  if chars == chars.uniq
-    puts index
+marker = 4
+File.read("day06_input.txt").chars.each_cons marker do |window|
+  if window == window.uniq
+    puts marker
     break
   end
-  index += 1
+  marker += 1
 end
 
 # Your device's communication system is correctly detecting packets, but still
@@ -81,11 +81,11 @@ end
 # How many characters need to be processed before the first start-of-message
 # marker is detected?
 
-index = 14
-File.read("day06_input.txt").chars.each_cons(index) do |chars|
-  if chars == chars.uniq
-    puts index
+marker = 14
+File.read("day06_input.txt").chars.each_cons(marker) do |window|
+  if window == window.uniq
+    puts marker
     break
   end
-  index += 1
+  marker += 1
 end
