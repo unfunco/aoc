@@ -78,18 +78,18 @@
 # each stack?
 
 stacks = [[],
-  ["D", "M", "S", "Z", "R", "F", "W", "N"],
-  ["W", "P", "Q", "G", "S"],
-  ["W", "R", "V", "Q", "F", "N", "J", "C"],
-  ["F", "Z", "P", "C", "G", "D", "L"],
-  ["T", "P", "S"],
-  ["H", "D", "F", "W", "R", "L"],
-  ["Z", "N", "D", "C"],
-  ["W", "N", "R", "F", "V", "S", "J", "Q"],
-  ["R", "M", "S", "G", "Z", "W", "V"],
+  %w[D M S Z R F W N],
+  %w[W P Q G S],
+  %w[W R V Q F N J C],
+  %w[F Z P C G D L],
+  %w[T P S],
+  %w[H D F W R L],
+  %w[Z N D C],
+  %w[W N R F V S J Q],
+  %w[R M S G Z W V],
 ]
 
-File.read("day05_input.txt").split(/\n{2}/)[1].lines do |instruction|
+File.read("input/day05").split(/\n{2}/)[1].lines do |instruction|
   this_many, from, to = instruction.scan(/\d+/).map &:to_i
   this_many.times do
     crate = stacks[from].pop
@@ -161,18 +161,18 @@ puts stacks.each.collect(&:last).join
 # each stack?
 
 stacks = [[],
-  ["D", "M", "S", "Z", "R", "F", "W", "N"],
-  ["W", "P", "Q", "G", "S"],
-  ["W", "R", "V", "Q", "F", "N", "J", "C"],
-  ["F", "Z", "P", "C", "G", "D", "L"],
-  ["T", "P", "S"],
-  ["H", "D", "F", "W", "R", "L"],
-  ["Z", "N", "D", "C"],
-  ["W", "N", "R", "F", "V", "S", "J", "Q"],
-  ["R", "M", "S", "G", "Z", "W", "V"],
+  %w[D M S Z R F W N],
+  %w[W P Q G S],
+  %w[W R V Q F N J C],
+  %w[F Z P C G D L],
+  %w[T P S],
+  %w[H D F W R L],
+  %w[Z N D C],
+  %w[W N R F V S J Q],
+  %w[R M S G Z W V],
 ]
 
-File.read("day05_input.txt").split(/\n{2}/)[1].lines do |instruction|
+File.read("input/day05").split(/\n{2}/)[1].lines do |instruction|
   this_many, from, to = instruction.scan(/\d+/).map &:to_i
   crates = stacks[from].pop this_many
   stacks[to].push *crates

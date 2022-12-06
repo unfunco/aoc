@@ -25,10 +25,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-    - name: Setup Go
-      uses: actions/setup-go@v3
-      with:
-        go-version: 1.19
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
@@ -36,19 +32,13 @@ jobs:
         ruby-version: 3.0
     - name: Day 01
       run: diff <(ruby day01.rb) <(echo 69289 ; echo 205615)
-      continue-on-error: true
     - name: Day 02
-      run: diff <(go run day02.go) <(echo 12740 ; echo 11980)
-      continue-on-error: true
+      run: diff <(ruby day02.go) <(echo 12740 ; echo 11980)
     - name: Day 03
       run: diff <(ruby day03.rb) <(echo 7597 ; echo 2607)
-      continue-on-error: true
     - name: Day 04
       run: diff <(ruby day04.rb) <(echo 595 ; echo 952)
-      continue-on-error: true
     - name: Day 05
       run: diff <(ruby day05.rb) <(echo FWNSHLDNZ ; echo RNRGDNFQG)
-      continue-on-error: true
     - name: Day 06
       run: diff <(ruby day06.rb) <(echo 1804 ; echo 2508)
-      continue-on-error: true

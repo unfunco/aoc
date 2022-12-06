@@ -83,7 +83,7 @@ class String
 end
 
 sum = 0
-File.read("day03_input.txt").lines.map do |r|
+File.read("input/day03").lines.map do |r|
   c1, c2 = r.compartmentalize 2
   item = [c1, c2].chars_intersection
   sum += PRIORITIES.find item
@@ -134,7 +134,7 @@ puts sum
 # What is the sum of the priorities of those item types?
 
 sum = 0
-File.read("day03_input.txt").lines.each_slice 3 do |g|
+File.read("input/day03").lines.each_slice 3 do |g|
   item = g.chars_intersection
   sum += PRIORITIES.find item
 end
