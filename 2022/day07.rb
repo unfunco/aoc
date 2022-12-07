@@ -124,7 +124,7 @@ end
 cwd = '/'
 files = {}
 fs = { cwd => nil }
-File.read('input/day07').lines do |line|
+File.read("#{__dir__}/input/day07").lines do |line|
   a, b, c = line.split
 
   # We discard ls commands since the lines that follow them are the

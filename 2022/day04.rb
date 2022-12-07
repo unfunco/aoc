@@ -71,7 +71,7 @@ end
 
 p1 = 0
 p2 = 0
-File.read('input/day04').lines do |line|
+File.read("#{__dir__}/input/day04").lines do |line|
   ranges = line.split(',').map do |r|
     Range.new(*r.split('-').map(&:to_i))
   end

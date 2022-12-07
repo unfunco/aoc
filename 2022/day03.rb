@@ -59,7 +59,9 @@
 
 # This creates an array of characters from a-z then from A-Z,
 # The array is zero-indexed from 0 through 51.
-PRIORITIES = [*'a'..'z', *'A'..'Z'].freeze
+# rubocop:disable Style/MutableConstant
+PRIORITIES = [*'a'..'z', *'A'..'Z']
+# rubocop:enable Style/MutableConstant
 
 # Since our PRIORITIES array is zero-indexed but the problem states that the
 # first character has a value of 1, we add a method to the PRIORITIES instance
@@ -85,7 +87,7 @@ class String
 end
 
 sum = 0
-File.read('input/day03').lines.map do |r|
+File.read("#{__dir__}/input/day03").lines.map do |r|
   c1, c2 = r.compartmentalize 2
   item = [c1, c2].chars_intersection
   sum += PRIORITIES.find item
@@ -136,7 +138,7 @@ puts sum
 # What is the sum of the priorities of those item types?
 
 sum = 0
-File.read('input/day03').lines.each_slice 3 do |g|
+File.read("#{__dir__}/input/day03").lines.each_slice 3 do |g|
   item = g.chars_intersection
   sum += PRIORITIES.find item
 end

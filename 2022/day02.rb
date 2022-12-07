@@ -57,7 +57,7 @@
 # What would your total score be if everything goes exactly according to your
 # strategy guide?
 
-File.open('input/day02').lines do |line|
+File.read("#{__dir__}/input/day02").lines do |line|
 end
 
 # The Elf finishes helping with the tent and sneaks back over to you.
@@ -85,5 +85,5 @@ end
 # Following the Elf's instructions for the second column, what would your total
 # score be if everything goes exactly according to your strategy guide?
 
-File.open('input/day02').lines do |line|
+File.read("#{__dir__}/input/day02").lines do |line|
 end

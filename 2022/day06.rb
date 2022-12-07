@@ -57,7 +57,7 @@
 # marker is detected?
 
 marker = 4
-File.read('input/day06').chars.each_cons marker do |window|
+File.read("#{__dir__}/input/day06").chars.each_cons marker do |window|
   if window == window.uniq
     puts marker
     break
@@ -84,7 +84,7 @@ end
 # marker is detected?
 
 marker = 14
-File.read('input/day06').chars.each_cons marker do |window|
+File.read("#{__dir__}/input/day06").chars.each_cons marker do |window|
   if window == window.uniq
     puts marker
     break
