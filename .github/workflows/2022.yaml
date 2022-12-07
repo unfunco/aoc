@@ -6,15 +6,35 @@ on:
     - main
     paths:
     - .github/workflows/2022.yaml
+    - .rubocop.yaml
     - 2022/**/*
+    - Gemfile
+    - Rakefile
   push:
     branches:
     - main
     paths:
     - .github/workflows/2022.yaml
+    - .rubocop.yaml
     - 2022/**/*
+    - Gemfile
+    - Rakefile
 
 jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: false
+        ruby-version: 3.0
+    - name: Analyse source code
+      run: bundle exec rubocop
+
   test:
     defaults:
       run:
