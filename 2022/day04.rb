@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Day 04: Camp Cleanup
 #
 # Space needs to be cleared before the last supplies can be unloaded from the
@@ -62,20 +64,21 @@
 # Monkey-patch the Range class and add a method that returns a boolean
 # indicative of whether two ranges overlap at any point.
 class Range
-  def overlaps?(r)
-    first <= r.last && r.first <= last
+  def overlaps?(range)
+    first <= range.last && range.first <= last
   end
 end
 
-p1, p2 = 0, 0
-File.read("input/day04").lines do |line|
-  ranges = line.split(",").map do |r|
-    Range.new(*r.split("-").map(&:to_i))
+p1 = 0
+p2 = 0
+File.read('input/day04').lines do |line|
+  ranges = line.split(',').map do |r|
+    Range.new(*r.split('-').map(&:to_i))
   end
 
   r1, r2 = ranges
 
-  p1 += 1 if r1.cover? r2 or r2.cover? r1
+  p1 += 1 if r1.cover?(r2) || r2.cover?(r1)
 
   # It seems like there is still quite a bit of duplicate work planned.
   # Instead, the Elves would like to know the number of pairs that overlap

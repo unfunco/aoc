@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Day 05: Supply Stacks
 #
 # The expedition can depart as soon as the final supplies have been unloaded
@@ -78,19 +80,18 @@
 # each stack?
 
 stacks = [[],
-  %w[D M S Z R F W N],
-  %w[W P Q G S],
-  %w[W R V Q F N J C],
-  %w[F Z P C G D L],
-  %w[T P S],
-  %w[H D F W R L],
-  %w[Z N D C],
-  %w[W N R F V S J Q],
-  %w[R M S G Z W V],
-]
+          %w[D M S Z R F W N],
+          %w[W P Q G S],
+          %w[W R V Q F N J C],
+          %w[F Z P C G D L],
+          %w[T P S],
+          %w[H D F W R L],
+          %w[Z N D C],
+          %w[W N R F V S J Q],
+          %w[R M S G Z W V]]
 
-File.read("input/day05").split(/\n{2}/)[1].lines do |instruction|
-  this_many, from, to = instruction.scan(/\d+/).map &:to_i
+File.read('input/day05').split(/\n{2}/)[1].lines do |instruction|
+  this_many, from, to = instruction.scan(/\d+/).map(&:to_i)
   this_many.times do
     crate = stacks[from].pop
     stacks[to].push crate
@@ -161,21 +162,20 @@ puts stacks.each.collect(&:last).join
 # each stack?
 
 stacks = [[],
-  %w[D M S Z R F W N],
-  %w[W P Q G S],
-  %w[W R V Q F N J C],
-  %w[F Z P C G D L],
-  %w[T P S],
-  %w[H D F W R L],
-  %w[Z N D C],
-  %w[W N R F V S J Q],
-  %w[R M S G Z W V],
-]
+          %w[D M S Z R F W N],
+          %w[W P Q G S],
+          %w[W R V Q F N J C],
+          %w[F Z P C G D L],
+          %w[T P S],
+          %w[H D F W R L],
+          %w[Z N D C],
+          %w[W N R F V S J Q],
+          %w[R M S G Z W V]]
 
-File.read("input/day05").split(/\n{2}/)[1].lines do |instruction|
-  this_many, from, to = instruction.scan(/\d+/).map &:to_i
+File.read('input/day05').split(/\n{2}/)[1].lines do |instruction|
+  this_many, from, to = instruction.scan(/\d+/).map(&:to_i)
   crates = stacks[from].pop this_many
-  stacks[to].push *crates
+  stacks[to].push(*crates)
 end
 
 puts stacks.each.collect(&:last).join

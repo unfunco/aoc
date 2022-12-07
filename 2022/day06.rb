@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Day 06: Tuning Trouble
 #
 # The preparations are finally complete; you and the Elves leave camp on foot
@@ -55,7 +57,7 @@
 # marker is detected?
 
 marker = 4
-File.read("input/day06").chars.each_cons marker do |window|
+File.read('input/day06').chars.each_cons marker do |window|
   if window == window.uniq
     puts marker
     break
@@ -82,7 +84,7 @@ end
 # marker is detected?
 
 marker = 14
-File.read("input/day06").chars.each_cons marker do |window|
+File.read('input/day06').chars.each_cons marker do |window|
   if window == window.uniq
     puts marker
     break
